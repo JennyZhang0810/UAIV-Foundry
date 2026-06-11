@@ -1,128 +1,85 @@
-# UAIV-Foundry `.io` 项目页部署说明
+# Deploying the UAIV-Foundry Project Page
 
-更新时间：2026-06-11
+This guide deploys the UAIV-Foundry project page to the existing GitHub repository:
 
-## 推荐方案
+```text
+https://github.com/JennyZhang0810/UAIV-Foundry
+```
 
-当前建议先上传轻量项目页，而不是完整 `UAIV-Foundry` 仓库。
+The goal is to publish a clean project page first, without uploading the full internal engineering workspace.
 
-原因：
+## Files to Upload
 
-- 完整仓库后续还会大量修改；
-- 完整仓库包含内部日志、过程文档、脚本草稿和生成图草稿；
-- 现在更需要一个清晰页面，让别人先理解 Foundry 是什么；
-- 数据尚未正式公开，完整仓库不宜被误解为 final release。
-
-## 需要上传的文件
-
-只上传这个目录里的 3 个文件：
+Upload only these files at the repository root:
 
 ```text
 index.html
 README.md
 DEPLOYMENT.md
+.nojekyll
 ```
 
-本目录路径：
+Do not upload the full local UAIV-Foundry workspace yet.
+
+## Recommended Repository Structure for Now
+
+The GitHub repository should initially look like:
 
 ```text
-UAIV-Foundry/docs/io_site_package
+UAIV-Foundry/
+├── index.html
+├── README.md
+├── DEPLOYMENT.md
+└── .nojekyll
 ```
 
-## 方案 A：上传到个人主页仓库
+This keeps the public page clean while the full Foundry engineering repository is still evolving.
 
-适合想要一个主站入口：
+## Local Upload Steps
+
+Copy the three files from:
 
 ```text
-https://JennyZhang0810.github.io
+UAIV-Foundry/docs/io_site_package/
 ```
 
-### 1. 在 GitHub 创建仓库
-
-仓库名必须是：
+to a clean local folder, for example:
 
 ```text
-JennyZhang0810.github.io
+D:\UAIV-Foundry-page
 ```
 
-建议不要勾选 README / .gitignore / license。
-
-### 2. 在本地 Git Bash 操作
-
-把 `io_site_package` 复制到 Windows 本地任意位置，例如：
-
-```text
-D:\UAIV-Foundry-io
-```
-
-进入目录：
+Then run:
 
 ```bash
-cd /d D:\UAIV-Foundry-io
-```
+cd /d D:\UAIV-Foundry-page
 
-初始化并上传：
-
-```bash
 git init
 git branch -M main
 git add .
 git commit -m "Initial UAIV-Foundry project page"
-git remote add origin https://github.com/JennyZhang0810/JennyZhang0810.github.io.git
+git remote add origin https://github.com/JennyZhang0810/UAIV-Foundry.git
 git push -u origin main
 ```
 
-### 3. 打开页面
-
-稍等 1-3 分钟后访问：
-
-```text
-https://JennyZhang0810.github.io
-```
-
-## 方案 B：上传到单独项目页仓库
-
-适合不占用个人主页，只做 Foundry 项目页：
-
-```text
-https://JennyZhang0810.github.io/uaiv-foundry
-```
-
-### 1. 在 GitHub 创建仓库
-
-例如：
-
-```text
-uaiv-foundry
-```
-
-或：
-
-```text
-uaiv-foundry-page
-```
-
-### 2. 上传文件
+If the remote repository already has files, run:
 
 ```bash
-cd /d D:\UAIV-Foundry-io
-git init
-git branch -M main
-git add .
-git commit -m "Initial UAIV-Foundry project page"
-git remote add origin https://github.com/JennyZhang0810/uaiv-foundry.git
+git pull --rebase origin main
 git push -u origin main
 ```
 
-### 3. 打开 GitHub Pages
+If there are conflicts, stop and resolve them before pushing.
 
-进入 GitHub 仓库页面：
+## Enable GitHub Pages
+
+In the GitHub repository:
 
 ```text
 Settings -> Pages
 ```
 
-选择：
+Use:
 
 ```text
 Source: Deploy from a branch
@@ -130,15 +87,15 @@ Branch: main
 Folder: /root
 ```
 
-保存后访问：
+After GitHub finishes deployment, the page should be available at:
 
 ```text
-https://JennyZhang0810.github.io/uaiv-foundry
+https://JennyZhang0810.github.io/UAIV-Foundry/
 ```
 
-## 后续如何更新页面
+## How to Update the Page Later
 
-每次我改完 `index.html` 后，你只需要把新的 `index.html` 覆盖到本地页面仓库，然后：
+When `index.html` changes:
 
 ```bash
 git status
@@ -147,17 +104,26 @@ git commit -m "Update UAIV-Foundry project page"
 git push
 ```
 
-如果 README 或部署说明也改了：
+When README or this deployment guide changes:
 
 ```bash
-git add .
-git commit -m "Update UAIV-Foundry page docs"
+git add README.md DEPLOYMENT.md
+git commit -m "Update UAIV-Foundry project page docs"
 git push
 ```
 
-## 当前页面不能写什么
+## Release Boundary
 
-不要写：
+The current page may say:
+
+```text
+pre-release engineering status
+Golden/full annotation pending
+release pending
+benchmark dry-run ready
+```
+
+The current page must not say:
 
 ```text
 UAIV-Real has been publicly released
@@ -166,19 +132,18 @@ Real benchmark results are available
 All annotations are reviewed
 ```
 
-当前只能写：
+## Future Full Repository Release
+
+After the Foundry engineering structure stabilizes, the full repository can be added progressively:
 
 ```text
-pre-release engineering preview
-Golden/full annotation pending
-release pending
-benchmark dry-run ready
+awesome/
+pipelines/
+qa/
+dashboard/
+benchmark_runner/
+datasets/
+docs/
 ```
 
-## 后续可迭代方向
-
-1. 加入更好的 Foundry 架构图。
-2. 加入 Golden 标注完成后的真实 QA 数字。
-3. 加入首发数据图像样例，但必须确认可公开展示。
-4. 加入最终 dataset card 和 public download links。
-5. 数据公开后，再把页面从 preview 改成 official release page。
+Before that step, internal logs, raw data, annotation exports, and private planning files should remain outside the public GitHub repository.
