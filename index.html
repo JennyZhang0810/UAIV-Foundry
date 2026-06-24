@@ -522,7 +522,7 @@
       <div>
         <span class="hero-kicker">Data Operating System for low-altitude dataset production</span>
         <h1>让低空数据集的构建、质检、发布和评测变成一条可审计的生产链。</h1>
-        <p class="hero-copy">UAIV-Foundry 不是另一个标注平台，也不只是资源清单。它是围绕低空多模态数据集生产而构建的数据操作系统，负责把 manifest、QA、release、dataset card、benchmark protocol 和 failure-to-data iteration 显式组织起来。</p>
+        <p class="hero-copy">UAIV-Foundry 是围绕低空多模态数据集生产而构建的数据操作系统，负责把 manifest、QA、release、dataset card、benchmark protocol 和 failure-to-data iteration 组织成可追溯的工程流程。</p>
         <div class="hero-actions">
           <a class="button primary" href="https://github.com/JennyZhang0810/UAIV-Foundry">GitHub</a>
           <a class="button" href="https://jennyzhang0810.github.io/UAIV-DataHub/">返回 UAIV DataHub</a>
@@ -539,8 +539,8 @@
   <main>
     <section class="section" id="positioning">
       <div class="section-inner">
-        <h2 class="section-title">Foundry 在 UAIV 生态里扮演的不是“又一个页面”，而是后台操作系统。</h2>
-        <p class="section-copy">它连接 UAIV-Real 和 UAIV-Labeler：前者是对外发布的数据产品，后者是人工生产工作台，而 Foundry 负责把数据整理、QA、release readiness、数据卡、benchmark request 和后续迭代做成系统化基础设施。</p>
+        <h2 class="section-title">Foundry 是 UAIV 数据生产链中的基础设施层。</h2>
+        <p class="section-copy">它连接 UAIV-Real 和 UAIV-Labeler：前者提供低空数据产品，后者支撑人工标注与复核，而 Foundry 负责组织数据整理、质量检查、发布准备、数据卡、评测协议和后续迭代。</p>
         <div class="pillar-grid">
           <article class="card">
             <span class="eyebrow">Knowledge Layer</span>
@@ -563,25 +563,24 @@
 
     <section class="section" id="status">
       <div class="section-inner">
-        <h2 class="section-title">当前最重要的成果，不是概念，而是已经落地的 release candidate 组织能力。</h2>
-        <p class="section-copy">围绕 UAIV-Real CityGov，Foundry 已经不再停留在“标注前准备”口径，而是能够对应当前的标准化任务包、release docs、split、audit 和 benchmark 协议。</p>
+        <h2 class="section-title">面向 CityGov 数据包的 release-candidate 组织能力。</h2>
+        <p class="section-copy">围绕 UAIV-Real CityGov，Foundry 已经形成标准化任务包、release documents、split、audit 和 benchmark protocol 的组织能力，为公开沉积和后续评测提供结构化基础。</p>
         <div class="metric-grid">
           <div class="card metric"><strong>4,796</strong><span>CityGov source-image pool</span></div>
           <div class="card metric"><strong>5,088</strong><span>standardized task records</span></div>
           <div class="card metric"><strong>6</strong><span>task modules in the release bundle</span></div>
-          <div class="card metric"><strong>v0.1-rc1</strong><span>current Foundry-facing release status</span></div>
+          <div class="card metric"><strong>v0.1-rc1</strong><span>release-candidate status</span></div>
         </div>
         <div class="notice" style="margin-top: 18px;">
-          当前公开口径应表述为：<strong>release candidate suitable for Foundry ingestion and internal benchmark prototyping</strong>。  
-          当前不应提前宣称 DOI 已就绪、正式公共下载已完成，或真实 benchmark 已经公开。
+          当前 CityGov 数据包处于 release-candidate 阶段，已经适合 Foundry 结构化接入、质量审计和评测协议准备；正式 DOI、最终公开下载链接和公开 benchmark 结果将在发布流程完成后补充。
         </div>
       </div>
     </section>
 
     <section class="section" id="capabilities">
       <div class="section-inner">
-        <h2 class="section-title">Foundry 当前最值得展示的不是“想做什么”，而是已经能稳定提供哪些基础设施。</h2>
-        <p class="section-copy">以下能力都能在当前仓库和现有 release candidate 里找到对应证据，而不是停留在路线图口号。</p>
+        <h2 class="section-title">Foundry 提供可复用的数据生产基础设施。</h2>
+        <p class="section-copy">这些能力覆盖数据打包、质量审计、数据划分、评测协议和生产编排，使低空数据集从文件集合转化为可检查、可复用、可发布的数据产品。</p>
         <div class="capability-grid">
           <div class="card">
             <h3>Dataset packaging</h3>
@@ -625,8 +624,8 @@
 
     <section class="section evidence-band" id="evidence">
       <div class="section-inner">
-        <h2 class="section-title">三张图就能说明 Foundry 为什么不是普通脚本仓库。</h2>
-        <p class="section-copy">这些图都来自你本地仓库已有的真实资产，而不是为了项目页临时拼出来的装饰图。</p>
+        <h2 class="section-title">从生态关系、系统架构到真实工作流。</h2>
+        <p class="section-copy">以下三类图示展示 Foundry 如何连接数据产品、人工工作台和发布评测流程，体现其作为数据生产操作系统的角色。</p>
         <div class="figure-grid">
           <article class="figure-card">
             <img src="assets/foundry-ecosystem.png" alt="UAIV ecosystem overview">
@@ -639,14 +638,14 @@
             <img src="assets/foundry-architecture.png" alt="UAIV-Foundry three-layer architecture">
             <div class="body">
               <h3>三层架构</h3>
-              <p>把 knowledge、factory、release & benchmark 三层明确拆开，便于在论文、系统说明和项目演讲里稳定复用。</p>
+              <p>把 knowledge、factory、release & benchmark 三层明确拆开，形成稳定、可复用的数据生产架构说明。</p>
             </div>
           </article>
           <article class="figure-card">
             <img src="assets/foundry-workflow.png" alt="UAIV-Foundry first-public workflow">
             <div class="body">
               <h3>真实工作流</h3>
-              <p>显示 first-public batch 从数据整理、标注到 QA / release 的流程，而不是仅有概念说明。</p>
+              <p>显示 first-public batch 从数据整理、标注到 QA / release 的完整流程。</p>
             </div>
           </article>
         </div>
@@ -655,8 +654,8 @@
 
     <section class="section">
       <div class="section-inner">
-        <h2 class="section-title">当前 Foundry 对外最应该强调的证据链</h2>
-        <p class="section-copy">如果你在会议或论文里只需要用一张表解释 Foundry 的成熟度，这张表最合适。</p>
+        <h2 class="section-title">Foundry 的 release-readiness 证据链</h2>
+        <p class="section-copy">下表概括当前 CityGov 数据包在可移植发布、质量审计、评测协议和公开沉积准备方面的状态。</p>
         <div class="panel">
           <table>
             <thead>
@@ -684,13 +683,13 @@
               </tr>
               <tr>
                 <td><strong>Public deposition links</strong></td>
-                <td class="progress">pending</td>
-                <td>ScienceDB DOI、最终下载链接和正式 data citation 仍待补齐。</td>
+                <td class="progress">in progress</td>
+                <td>ScienceDB DOI、最终下载链接和正式 data citation 将随公开发布流程补充。</td>
               </tr>
               <tr>
                 <td><strong>Privacy final counts</strong></td>
-                <td class="progress">pending</td>
-                <td>隐私审查的 retained / blurred / removed 数量仍需最终确认。</td>
+                <td class="progress">in progress</td>
+                <td>隐私审查的 retained / blurred / removed 统计将在最终发布说明中记录。</td>
               </tr>
             </tbody>
           </table>
@@ -701,7 +700,7 @@
     <section class="section" id="links">
       <div class="section-inner">
         <h2 class="section-title">关键入口</h2>
-        <p class="section-copy">这几个入口足以覆盖公开访问、项目说明与配套系统跳转，避免访问者第一次进入时直接落到完整工程目录中。</p>
+        <p class="section-copy">这些入口连接 Foundry 项目仓库、UAIV 统一入口和配套标注平台，便于访问者进一步了解完整数据基座。</p>
         <div class="link-grid">
           <a class="card" href="https://github.com/JennyZhang0810/UAIV-Foundry">
             <h3>GitHub Repository</h3>
@@ -722,7 +721,7 @@
     <section class="section">
       <div class="section-inner">
         <h2 class="section-title">后续方向</h2>
-        <p class="section-copy">Foundry 的下一步不是再堆更多概念，而是继续把现有 release candidate 的最后几个公共缺口补齐。</p>
+        <p class="section-copy">后续工作将围绕公开发布闭环、评测协议落地和跨数据产品复用展开。</p>
         <div class="roadmap-grid">
           <article class="card">
             <h3>Public release completion</h3>
@@ -730,7 +729,7 @@
           </article>
           <article class="card">
             <h3>Benchmark operationalization</h3>
-            <p>把 current grouped split、adapter protocol 和 metric specs 进一步固化成可直接执行的 benchmark 流程。</p>
+            <p>把 grouped split、adapter protocol 和 metric specs 进一步固化成可执行的 benchmark 流程。</p>
           </article>
           <article class="card">
             <h3>Reusable Data OS</h3>
